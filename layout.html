@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="/static/assets/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      debugger;
+      var data = google.visualization.arrayToDataTable([
+        ['Algorithm', 'Percentage'],
+    ['RNN', {{ rnnacc }}],
+      ['LSTM', {{ lstmacc }}]
+        ]);
+
+    var options = {
+      chart: {
+        title: 'Accuracy Graph',
+      },
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+  </script>
+  <title>Phishing Detection</title>
+
+</head>
+
+<body>
+
+  <div class="min-vh-100 d-flex flex-column">
+
+    <nav class="navbar navbar-expand-lg bg-danger">
+      <div class="container-fluid">
+        <a class="navbar-brand text-uppercase text-white fw-bold" href="#"><i class="fa-solid fa-shield-halved"></i>
+          Phishing
+          Detection</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-white fw-bold" aria-current="page" href="dataloader">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white fw-bold" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white fw-bold" href="login">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-5 my-auto">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-12">
+          <div class="card rounded text-black  border border-danger-subtle shadow-sm">
+            <div class="card-body p-md-5 py-4 mx-md-4 mx-2">
+
+              {% block body %} {% endblock %}
+              <br>
+              {% if label %} {{ label }} {% endif %}</br></br>
+              {% if label_type %} {{ label_type }} {% endif %}</br></br>
+              {% if classname %} {{ classname }} </br></br>
+
+
+              <div class="table-responsive mb-4">
+                <table class="table table-bordered">
+                  <tr>
+                    <th>Establishing Securing Capabilities</th>
+                    <th>Server Autentication and Key Exchange</th>
+                    <th>Client Autentication and Key Exchange</th>
+                    <th>Finalizing Handshake Protocol</th>
+                  </tr>
+                  <tr>
+                    <td>{{ ssl1 }}</td>
+                    <td>{{ ssl2 }}</td>
+                    <td>{{ ssl3 }}</td>
+                    <td>{{ ssl4 }}</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="table-responsive mb-4">
+                <table class="table table-bordered">
+                  <h6>SSL Vendor</h6>
+
+                  <tr>
+                    <th>Issuer</th>
+                    <th>Issued To</th>
+                    <th>License #</th>
+                    <th>Valid From</th>
+                    <th>Valid To</th>
+                  </tr>
+                  <tr>
+                    <td style="color:black;">{{ issued_by }}</td>
+                    <td style="color:black;">{{ hostname1 }}</td>
+                    <td style="color:black;">{{ certnumber }}</td>
+                    <td style="color:black;">{{ validfrom }}</td>
+                    <td style="color:black;">{{ vaidtill }}</td>
+                  </tr>
+
+                </table>
+              </div>
+
+
+              <h4>Your Hostname is {{hostname}}</h4></br>
+              <h4>Your IP Address is {{IPAddr}}</h4></br>
+              <h4>Severity {{sev}}</h4></br>
+              <h4>Potential Treat {{pot}}</h4></br>
+              <h4>Level : {{level}}</h4></br>
+              <h4>Depth : {{depth}}</h4></br>
+              <h4>Layers : {{layers}}</h4></br>
+              <div id="barchart_material" style="width: 700px; height: 400px;"></div>
+              {% endif %}
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-grow-1"></div>
+    <footer class="bg-danger text-uppercase text-white text-center border-top border-white fw-bold">
+      Phishing Detection. All rights reserved <span id="year"></span>
+    </footer>
+
+
+  </div>
+
+  <script type="text/javascript" src="/static/assets/js/jquery.js"></script>
+  <script src="/static/assets/js/bootstrap.js"></script>
+  <script src="/static/js/plots.js"></script>
+
+  <script language="javascript" type="text/javascript">
+    $(function () {
+      $('#loading').hide();
+
+      $(".btn").click(function () {
+        $("#loading").show();
+      });
+
+    });
+  </script>
+
+
+
+</body>
+
+</html>

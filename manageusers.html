@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+	<title>index</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Medical Care a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+	<link href="/static/assets/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+
+	<div class="min-vh-100 d-flex flex-column">
+
+		<nav class="navbar navbar-expand-lg bg-danger">
+			<div class="container-fluid">
+				<a class="navbar-brand text-uppercase text-white fw-bold" href="#"><i class="fa-solid fa-shield-halved"></i> Phishing
+					Detection</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						
+						<li class="nav-item">
+							<a class="nav-link text-white fw-bold" id="login" href="login">Logout</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+<div style="min-height:650px;">
+<h1>Manage Users</h1>
+        <div class="table-responsive">
+            <table class="table">
+
+                <tr style="background-color:orange;">
+
+                    <th>User Id</th>
+                    <th>UserName</th>
+                    <th>Name</th>
+                    <th>Email</th>
+
+                    <th>Addr</th>
+                    <th>User Type</th>
+                    <th></th>
+                </tr>
+
+
+                {% for item in data %}
+                <tr>
+                    <td>{{item[0]}}</td>
+                    <td>{{item[1]}}</td>
+                    <td>{{item[2]}}</td>
+                    <td>{{item[4]}}</td>
+                    <td>{{item[6]}}</td>
+                    <td>{{item[7]}}</td>
+                    <td><a class="btn btn-danger"
+                            href="delete?id={{item[0]}}">Delete</a>
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+		<footer class="bg-danger text-uppercase text-white text-center border-top border-white fw-bold">
+			Phishing Detection. All rights reserved <span id="year"></span>
+		</footer>
+
+
+	</div>
+
+	<script type="text/javascript" src="/static/assets/js/jquery.js"></script>
+	<script src="/static/assets/js/bootstrap.js"></script>
+
+
+
+
+</body>
+
+</html>
